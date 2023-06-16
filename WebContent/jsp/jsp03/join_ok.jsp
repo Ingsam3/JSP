@@ -32,7 +32,7 @@
 		<!-- 다른 방법 -->
 		다른 방법<br>
 		이메일 : <%= request.getParameter("mem_email") %><hr>
-		<input type="button" value=" 전송" onclick="location='jspForm13.jsp';">
+		<input type="button" value=" 전송" onclick="location='ex01.jsp';">
 	</form>
 		
 	</body>

@@ -41,9 +41,6 @@
 				   $('#mem_email').val('').focus();
 				   return false;
 			   }
-			   
-			   
-			   
 			 }
 		</script>
 	</head>
