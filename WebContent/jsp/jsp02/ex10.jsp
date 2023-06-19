@@ -65,7 +65,7 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<script src="../js/jquery.js"></script>
+<script src="js/jquery.js"></script>
 <script type="text/javascript">
 
  function guest_check(){//function 키워드로 guest_book()함수 정의
