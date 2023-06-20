@@ -22,4 +22,22 @@
 	<param-name>debugLevel</param-name>
 	<param-value>5</param-value>
 </context-param>
+
+<!--  해당 경로에 파일 없음, 404 에러  코드 처리 -->
+	<error-page>
+		<!-- 한개의 에러 페이지 지정 -->
+		<error-code>404</error-code><!-- 에러 상태 코드  -->
+		<location>/error/error404.jsp</location><!-- 에러 페이지가 사용할 jsp 파일 경로 -->
+	</error-page>
+<!-- 서버 내부 에러 500 : 영문, 대소문자 잘못, 오타 입력시 발생 -->	
+	<error-page>
+		<error-code>500</error-code><!-- 에러 상태 코드  -->
+		<location>/error/error500.jsp</location><!-- 에러 페이지가 사용할 jsp 파일 경로 -->
+	</error-page>
+<!-- NullPointerExcep 예외 오류 처리 -->	
+	<error-page>
+		<exception-type>java.lang.NullPointerException</exception-type><!-- 에러 상태 코드  -->
+		<location>/error/errorNullPoint.jsp</location><!-- 에러 페이지가 사용할 jsp 파일 경로 -->
+	</error-page>
+
 </web-app>
