@@ -39,5 +39,19 @@
 		<exception-type>java.lang.NullPointerException</exception-type><!-- 에러 상태 코드  -->
 		<location>/error/errorNullPoint.jsp</location><!-- 에러 페이지가 사용할 jsp 파일 경로 -->
 	</error-page>
+	
+<!-- 코드 조각 자동 포함 기능 -->	
+	<jsp-config>
+	<jsp-property-group>
+			<url-pattern> /view/*</url-pattern>
+			<!-- url pattern : 웹 주소창에서 실행되는 주소값. 이것을 MVC 매핑주소라고 부른다 -->
+			<include-prelude>/common/variable.jspf</include-prelude>
+			<!-- jsp 파일 앞에 삽입할 파일 지정 ( / : 절대 경로 지정) -->
+			<include-coda>/common/footer.jsp</include-coda>
+			<!-- url pattern에서 지정한 jsp 파일의 뒷부분에 삽입할 파일 지정 -->
+		</jsp-property-group>
+	</jsp-config>
+
+
 
 </web-app>
