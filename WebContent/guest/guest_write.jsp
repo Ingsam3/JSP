@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>방명록 글쓰기 폼</title>
+<title>1. 방명록 글쓰기 폼</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="../js/guest.js"></script>
 
@@ -13,7 +13,7 @@
 	<form method="post" action="guest_write_ok.jsp" onsubmit="return check();">
 		<table border="1">
 			<tr>
-				<th colspan="2">jsp 방명록 글쓰기 폼</th>
+				<th colspan="2">1. jsp 방명록 글쓰기 폼</th>
 			</tr>
 			<tr>
 				<th>글쓴이</th>
