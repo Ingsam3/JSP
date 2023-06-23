@@ -4,7 +4,6 @@
 <%
 	int gno = Integer.parseInt(request.getParameter("no"));
 
-
 %>    
     
     
@@ -14,7 +13,7 @@
 <meta charset="UTF-8">
 <title>방명록 삭제</title>
 <script type="text/javascript">
-	function del_check()() {
+	function del_check() {
 		if($.trim($('#del_pwd').val()) == ""){
 			alert("비번을 입력하세요");
 			$('#del_pwd').val('').focus();
