@@ -32,7 +32,7 @@
 	      
 	      if (re == 1) {
 	         out.println("<script>");
-	         out.println("alert('방명록 저장에 성공했습니다~!');");
+	         out.println("alert('게시판 저장에 성공했습니다~!');");
 	         out.println("location='board_list.jsp';");
 	         out.println("</script>");
 	      }
@@ -49,8 +49,6 @@
 
 
 
-
- 
 <!DOCTYPE html>
 <html>
 <head>

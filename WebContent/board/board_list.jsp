@@ -17,6 +17,11 @@
 	try{
 		Class.forName(driver);
 		con=DriverManager.getConnection(url,user,password);
+		
+		/*sql="select count(*) from boardT7";
+		pstmt =con.prepareStatement(sql);
+		rs=pstmt.executeQuery();*/
+		
 		sql="select * from boardT7 order by bno desc";
 		pstmt =con.prepareStatement(sql);//
 		rs=pstmt.executeQuery(); //slelct 문 수행 후 결과 레코드를 rs에 저장
@@ -34,15 +39,9 @@
 			<th colspan="5">게시판 보기</th>
 		</tr>
 		<tr>
-			<% int count=0;
-			//sql="select bname from boardT7";
-			//pstmt =con.prepareStatement(sql);
-			//rs=pstmt.executeQuery();
-			//count= Integer.parseInt(rs.getString(1));
-			//sql="select count(bno_seq) from bno_seq";
-			%>
+		
 			<!-- 카운트 셀렉트 , 변수에 담기 -->
-			<th colspan="5">총 게시물 수 : <%=count %></th>
+			<th colspan="5">총 게시물 수 :</th>
 		</tr>
 		<tr>
 			<th>번호</th><th>글쓴이</th><th>글제목</th><th>조회수</th><th>등록날짜</th>
@@ -61,13 +60,7 @@
 				<input type="button" value="게시판 글쓰기" onclick="location='board_write.jsp';">
 			</th>
 		</tr>
-	
 	</table>
-
-
-
-
-
 
 </body>
 </html>
