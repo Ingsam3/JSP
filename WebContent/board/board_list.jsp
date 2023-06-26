@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@ page import ="java.sql.*" %>   
 
 <%
@@ -16,49 +17,57 @@
 	try{
 		Class.forName(driver);
 		con=DriverManager.getConnection(url,user,password);
-		sql="select * from guestbook order by gno desc";
+		sql="select * from boardT7 order by bno desc";
 		pstmt =con.prepareStatement(sql);//
 		rs=pstmt.executeQuery(); //slelct 문 수행 후 결과 레코드를 rs에 저장
-%>
-
- 
+%>    
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>4. 목록확인</title>
+<title>게시판 목록</title>
 </head>
 <body>
 	<table border="1">
 		<tr>
-			<th colspan="5">방명록 보기</th>
+			<th colspan="5">게시판 보기</th>
 		</tr>
 		<tr>
-			<th >번호</th> <th >글제목</th><th >글쓴이</th><th >조회수</th><th >등록날짜</th>
+			<% int count=0;
+			//sql="select bname from boardT7";
+			//pstmt =con.prepareStatement(sql);
+			//rs=pstmt.executeQuery();
+			//count= Integer.parseInt(rs.getString(1));
+			//sql="select count(bno_seq) from bno_seq";
+			%>
+			<!-- 카운트 셀렉트 , 변수에 담기 -->
+			<th colspan="5">총 게시물 수 : <%=count %></th>
 		</tr>
-		<% while(rs.next()){ //next()는 다음 레코드 행이 존재하면 참%>
-			<tr>
-				<th><%=rs.getInt(1) %></th>
-				<!-- 1은 select  문 뒤에 검색되는 컬럼 순번을 의미한다. 해당 컬럼의 레코드가 정수 숫자이면 getInt ()로 가져온다
-				 -->
-				<th><a href="guest_cont.jsp?no=<%=rs.getInt(1)%>"><%=rs.getString("gtitle") %> </a></th>
-				<!-- *.jsp?no=번호값 형태의 get 방식으로 주소창 노출해서 값을 전달한다 -->
-				<th><%=rs.getString("gname") %></th>
-				<!-- gname 컬럼의 레코드가 문자열이면 getString()메소드로 가져온다 -->
-				<th><%=rs.getInt("ghit") %></th>
-				<th><%=rs.getString("gdate").substring(0,10) %></th>
-				<%--0이상 10미만의 년 월일만 반환 --%>
-				
-			</tr>
-			
-		<% } %>	
+		<tr>
+			<th>번호</th><th>글쓴이</th><th>글제목</th><th>조회수</th><th>등록날짜</th>
+		</tr>
+		<% while(rs.next()){ %>
+		<tr>
+			<th><%=rs.getInt(1) %></th>
+			<th><%=rs.getString("bname") %></th>
+			<th><a href="board_cont.jsp?no=<%=rs.getInt(1)%>"><%=rs.getString("btitle") %> </a></th>
+			<th><%=rs.getInt("bhit") %></th>
+			<th><%=rs.getString("bdate").substring(0,10) %></th>
+		</tr>
+	<% } %>	
 		<tr>
 			<th colspan="5">
-				<input type="button" value="방명록 글쓰기" onclick="location='guest_write.jsp';">
+				<input type="button" value="게시판 글쓰기" onclick="location='board_write.jsp';">
 			</th>
 		</tr>
-		
+	
 	</table>
+
+
+
+
+
 
 </body>
 </html>
@@ -75,6 +84,4 @@
 		
 	}
 %>
-	
-	
 	
