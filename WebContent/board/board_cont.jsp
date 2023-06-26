@@ -68,7 +68,8 @@
 				onclick="location='board_edit.jsp?no=<%=rs.getInt("bno")%>';">
 				
 				<input type="button" value="삭제" 
-				onclick="location='board_del.jsp?no=<%=rs.getInt("bno")%> ';">
+				onclick="location='board_del.jsp?no=<%=rs.getInt("bno")%> '; last_ck();">
+				<!-- onclick에 여러 개 함수 넣는 방법 -->
 				
 			 <input type="button" value="목록" onclick="location='board_list.jsp'">
 		</th>

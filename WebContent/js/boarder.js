@@ -21,7 +21,16 @@
  	}
  
  }
+function last_ck() {
 
+  if (confirm("정말로 삭제하시겠습니까?")) {
+
+    window.location.href = "board_list.jsp";
+
+
+  }
+
+}
  
  
  
