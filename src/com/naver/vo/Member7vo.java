@@ -1,7 +1,7 @@
 package com.naver.vo;
 
 /* 중간 자료 저장하는 데이터 저장빈 클래스 */
-public class Member7vo {/* 네임피라미터 이름과 빈클래스 변수명을 같게 한다. 이유는 코드라인을 줄일 수 있기 때문이다.*/
+public class Member7VO {/* 네임피라미터 이름과 빈클래스 변수명을 같게 한다. 이유는 코드라인을 줄일 수 있기 때문이다.*/
 
 	private String mem_id;//회원아이디
 	private String mem_pwd;//비밀번호
