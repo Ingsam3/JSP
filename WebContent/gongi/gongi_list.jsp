@@ -14,6 +14,7 @@
 <title>관리자 공지 목록</title>
 </head>
 <body>
+
  <table border="1">
   <tr>
    <th colspan="5">관리자 공지 목록</th>
@@ -26,6 +27,7 @@
   <%-- <th>공지번호</th>--%><th>회원이름</th> <th>비밀번호</th> <th>글내용</th> <th>작성일</th>
   </tr>
   <%
+  
     if(glist != null && glist.size() > 0){
     	for(GongiVO g:glist){
   %>

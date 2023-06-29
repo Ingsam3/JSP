@@ -63,10 +63,13 @@ public class GongiDAOImpl {
 				rs=pstmt.executeQuery();//select문 수행후 검색결과 레코드를 rs에 저장
 				while(rs.next()) {//복수개의 레코드행이 검색되어서 while 반복문으로 처리
 					GongiVO g=new GongiVO();
-				
+					
+					g.setG_no(Integer.parseInt(rs.getString("g_no")));
 					g.setG_name(rs.getString("g_name"));
+					g.setG_title(rs.getString("g_title"));
 					g.setG_pwd(rs.getString("g_pwd"));
 					g.setG_cont(rs.getString("g_cont"));
+					g.setG_hit(Integer.parseInt(rs.getString("g_hit")));
 					g.setG_date(rs.getString("g_date"));
 			
 					glist.add(g);//컬렉션에 추가
@@ -108,7 +111,7 @@ public class GongiDAOImpl {
 		}//getGongiCount()
 		
 		//공지 내용보기 메서드
-		public GongiVO getGongiCont(int gongijoin){
+		public GongiVO getGongiCont(int gongino){
 		
 		//작성자이름이 가진  찾기 sql- 맞는 리스트에 넣어서 	-cont에서 가져오기
 			GongiVO g=null;
@@ -118,17 +121,18 @@ public class GongiDAOImpl {
 	        	 con=DriverManager.getConnection(url,user,password);
 	        	 sql="select * from gongiT where g_no=?";
 	        	 pstmt=con.prepareStatement(sql);
-	        	 pstmt.setInt(1,gongijoin);
+	        	 pstmt.setInt(1,gongino);
 	        	 rs=pstmt.executeQuery();
+	        	 
 	        	 if(rs.next()) {//한개행 검색결과 레코드 값이 있을때는 if문으로 처리,next()메서드는 다음 레코드행이
 	        		 //존재하면 참
 	        		 g=new GongiVO();
-	        		 //g.setG_no(rs.getString(gongijoin)); //문제있음 -int 처리는 어케하는가
+	        		 g.setG_no(Integer.parseInt(rs.getString("g_no")));
 	        		 g.setG_name(rs.getString("g_name"));
 	        		 g.setG_title(rs.getString("g_title"));
 	        		 g.setG_pwd(rs.getString("g_pwd"));
 	        		 g.setG_cont(rs.getString("g_cont"));
-	        		 //g.setG_hit(rs.getString("g_hit")); //문제있음 
+	        		 g.setG_hit(Integer.parseInt(rs.getString("g_hit")));
 	        		 g.setG_date(rs.getString("g_date"));
 	        		
 	        	 }

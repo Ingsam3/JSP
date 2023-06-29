@@ -39,13 +39,13 @@
 	 
 	6. 관리자 공지 내용보기 gongi_cont.jsp를 작성한다
 	    GongiDAOImpl.java에 메서드 작성
-	    public GongiVO getGongiCont(int gongijoin){
+	    public GongiVO getGongiCont(int gongino){
 	    }
 	    
 	7. 관리자 공지 수정 폼 gongi_edit.jsp를 작성한다. 
 	get 방식으로 gongi_edit.jsp?gongijoin=번호값이
 	get으로 전달되면서 관리자 공지 수정폼 창이 나오면됨
-	기존메서드 getGongiCont(int gongijoin){}을 활용한다
+	기존메서드 getGongiCont(int gongino){}을 활용한다
 	
 	8. 관리자 공지 수정 완료 gongi_edit_ok.jsp를 작성한다 
 	비번이 같으면 수정, 다르면 '비번이 다릅니다' js 유효성 메시지를 띄운다
